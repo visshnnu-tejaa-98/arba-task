@@ -1,9 +1,21 @@
 import Avatar from "../../assets/avatar.jpg";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../redux/actions/cartActions";
 import "./Card.css";
+import { useEffect, useState } from "react";
 
 const Card = ({ product }) => {
+  let cartItems = useSelector((state) => state.cart.cartItems);
+  let dispatch = useDispatch();
+
+  const handleAddToCart = (id) => {
+    if (!cartItems.find((p) => p.id === id)) {
+      dispatch(addToCart(id));
+    }
+    dispatch(removeFromCart(id));
+  };
   return (
-    <div k className="mb-5">
+    <div className="mb-5">
       <div>
         <img className="product-image" src={Avatar} alt={product.title} />
       </div>
@@ -25,8 +37,14 @@ const Card = ({ product }) => {
               industry.
             </p>
             <p className="price py-1">Rs. {product.price}</p>
-            <button className="button" type="button">
-              Add to Cart
+            <button
+              className="button"
+              type="button"
+              onClick={() => handleAddToCart(product.id)}
+            >
+              {cartItems.find((p) => p.id === product.id)
+                ? "Remove From Cart"
+                : "Add to cart"}
             </button>
           </div>
         </div>

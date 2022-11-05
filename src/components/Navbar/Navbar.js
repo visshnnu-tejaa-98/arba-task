@@ -1,8 +1,10 @@
 import "./Navbar.css";
 import Avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  let cartItems = useSelector((state) => state.cart.cartItems);
   return (
     <div className="d-flex justify-content-between align-items-center">
       <div>
@@ -18,6 +20,7 @@ const Navbar = () => {
         <div className="d-flex align-items-center">
           <Link to="/cart">
             <span>
+              <span className="cart-count">{cartItems.length}</span>
               <span className="material-symbols-outlined p-2 cart-icon">
                 shopping_cart
               </span>
@@ -32,14 +35,14 @@ const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             />
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Logout
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Profile
                 </a>
               </li>

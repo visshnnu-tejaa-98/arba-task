@@ -24,7 +24,12 @@ const Cards = () => {
       )}
       {loading && (
         <div className="d-flex justify-content-center">
-          <h1>Loading...</h1>
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       )}
       {products && (
@@ -63,7 +68,7 @@ const Cards = () => {
         <div className="d-flex justify-content-between flex-wrap">
           {products &&
             products.map((product, index) => (
-              <Card ey={index} product={product} />
+              <Card key={index} product={product} />
             ))}
         </div>
       </div>

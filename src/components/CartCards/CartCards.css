@@ -1,0 +1,15 @@
+.checkoutBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout {
+  background-color: rgb(0, 202, 202);
+  color: #fff;
+  font-weight: 500;
+  border: none;
+}
+
+.checkout:hover {
+  background-color: rgb(1, 149, 149);
+}
