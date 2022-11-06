@@ -49,3 +49,15 @@
 .model-button:hover {
   background-color: rgb(1, 149, 149);
 }
+
+.product-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 576px) {
+  .product-container {
+    display: flex;
+    justify-content: center;
+  }
+}

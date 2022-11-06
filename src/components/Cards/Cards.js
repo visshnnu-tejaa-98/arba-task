@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../../redux/actions/productActions";
+import Avatar from "../../assets/avatar.jpg";
 
 import "./Cards.css";
 import Card from "../Card/Card";
 import { Button, Modal } from "react-bootstrap";
 
 const Cards = () => {
+  let cartItems = useSelector((state) => state.cart.cartItems);
+
   const [show, setShow] = useState(false);
   const handleClose = (status) => {
     setShow(false);
@@ -23,7 +26,6 @@ const Cards = () => {
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(1);
     dispatch(listProducts());
   }, [dispatch]);
 
@@ -94,14 +96,14 @@ const Cards = () => {
             alt=""
             className="heading-image "
           />
-          <h4 className="indigo-text text-accent-2 heading-text">
+          <h4 className="indigo-text text-accent-2 heading-text text-center pb-2">
             <strong>
               <em>Products</em>
             </strong>
           </h4>
         </div>
       )}
-      <div className="row ">
+      <div className=" ">
         {loading && (
           <div className="center spinner-margin">
             <div className="preloader-wrapper big active">
@@ -120,7 +122,7 @@ const Cards = () => {
           </div>
         )}
         {/* <Card product={product} key={index} /> */}
-        <div className="d-flex justify-content-between flex-wrap">
+        <div className="row product-container">
           {products &&
             products.map((product, index) => (
               <Card key={index} product={product} />

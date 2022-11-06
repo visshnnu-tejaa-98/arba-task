@@ -26,7 +26,7 @@ const Navbar = () => {
               </span>
             </span>
           </Link>
-          <div class="dropdown">
+          <div className="dropdown">
             <img
               src={Avatar}
               alt="Person photo p-2"

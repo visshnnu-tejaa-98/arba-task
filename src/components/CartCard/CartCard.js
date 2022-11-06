@@ -18,13 +18,13 @@ const CartCard = ({ cartItem }) => {
   };
 
   return (
-    <div className="mb-5">
+    <div className="mb-2 col col-sm-12 col-md-6 col-lg-4 product">
       <div>
         <img className="product-image" src={Avatar} alt={cartItem.title} />
       </div>
       <div>
-        <div class="card card-width">
-          <div class="card-body">
+        <div className="card card-width">
+          <div className="card-body">
             <p
               className="title p-0 m-0"
               data-bs-toggle="tooltip"

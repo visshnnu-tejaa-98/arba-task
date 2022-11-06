@@ -25,7 +25,6 @@ export const addToCart = (id, qty) => {
         image: res.image,
         price: res.price,
       };
-      console.log(product);
       dispatch(cartAddItem(product));
       localStorage.setItem("cart", JSON.stringify(getState().cart.cartItems));
     } catch (error) {
@@ -35,7 +34,6 @@ export const addToCart = (id, qty) => {
 };
 
 export const removeFromCart = (id) => {
-  console.log(id);
   return async (dispatch, getState) => {
     dispatch(cartRemoveItem(id));
     localStorage.setItem("cart", JSON.stringify(getState().cart.cartItems));
