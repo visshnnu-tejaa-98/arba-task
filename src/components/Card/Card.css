@@ -40,3 +40,10 @@
 .button:hover {
   background-color: rgb(1, 149, 149);
 }
+
+.product {
+  text-align: center;
+}
+.cart-body {
+  text-align: left;
+}

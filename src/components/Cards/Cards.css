@@ -33,3 +33,39 @@
     transform: rotate(360deg);
   }
 }
+.model-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.model-button {
+  width: 45%;
+  background-color: rgb(0, 202, 202);
+  color: #fff;
+  font-weight: 500;
+  border: none;
+}
+
+.model-button:hover {
+  background-color: rgb(1, 149, 149);
+}
+.products {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+    justify-content: center;
+  }
+}
+
+.body {
+  font-weight: 700;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.cards-container {
+  display: flex;
+  justify-content: center;
+}

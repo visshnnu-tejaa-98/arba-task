@@ -1,22 +1,77 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { listProducts } from "../../redux/actions/productActions";
 
 import "./Cards.css";
 import Card from "../Card/Card";
+import { Button, Modal } from "react-bootstrap";
 
 const Cards = () => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = (status) => {
+    setShow(false);
+  };
+  const handleCancel = () => {
+    setShow(false);
+  };
+  const handleAccept = () => {
+    localStorage.setItem("TC", true);
+    setShow(false);
+  };
+
   const { products, loading, error } = useSelector(
     (state) => state.productList
   );
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log(1);
     dispatch(listProducts());
   }, [dispatch]);
-  console.log(products, loading, error);
+  useEffect(() => {
+    if (localStorage.getItem("TC") == null) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  }, []);
   return (
     <div>
+      <Modal show={show} onHide={handleClose}>
+        {/* <Modal.Header closeButton>
+        </Modal.Header> */}
+        <Modal.Body className="body">
+          <Modal.Title className="py-3">TERMS AND CONDITIONS</Modal.Title>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </Modal.Body>
+        <Modal.Body className="body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </Modal.Body>
+        <Modal.Body className="body">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </Modal.Body>
+        <Modal.Footer className="model-footer">
+          <Button
+            variant="secondary"
+            className="model-button"
+            onClick={handleCancel}
+          >
+            Close
+          </Button>
+          <Button
+            variant="primary"
+            className="model-button"
+            onClick={handleAccept}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {error && (
         <div className="center">
           <h5 className="red-text message"> 😞 {error}</h5>
@@ -65,7 +120,7 @@ const Cards = () => {
           </div>
         )}
         {/* <Card product={product} key={index} /> */}
-        <div className="d-flex justify-content-between flex-wrap">
+        <div className="row cards-container">
           {products &&
             products.map((product, index) => (
               <Card key={index} product={product} />

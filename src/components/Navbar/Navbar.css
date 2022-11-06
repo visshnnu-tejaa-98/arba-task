@@ -2,7 +2,7 @@
   color: white;
   background-color: rgb(0, 202, 202);
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .logo-text {
   text-decoration: none;
@@ -48,7 +48,7 @@
   -o-border-radius: 50%;
   color: #fff;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   position: relative;
   bottom: 25px;
   left: 50px;

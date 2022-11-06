@@ -5,7 +5,7 @@ import "./CartCard.css";
 import { useEffect, useState } from "react";
 
 const CartCard = ({ cartItem }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const increment = () => {
     if (count < 10) {
       setCount((prev) => prev + 1);
@@ -23,8 +23,8 @@ const CartCard = ({ cartItem }) => {
         <img className="product-image" src={Avatar} alt={cartItem.title} />
       </div>
       <div>
-        <div class="card card-width">
-          <div class="card-body">
+        <div className="card card-width">
+          <div className="card-body">
             <p
               className="title p-0 m-0"
               data-bs-toggle="tooltip"

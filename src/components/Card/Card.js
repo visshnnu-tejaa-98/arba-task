@@ -15,13 +15,13 @@ const Card = ({ product }) => {
     dispatch(removeFromCart(id));
   };
   return (
-    <div className="mb-5">
-      <div>
+    <div className="product mb-5 col sm-12 md-3">
+      <div className="image-container">
         <img className="product-image" src={Avatar} alt={product.title} />
       </div>
       <div>
-        <div class="card card-width">
-          <div class="card-body">
+        <div className="card card-width">
+          <div className="card-body ">
             <p
               className="title p-0 m-0"
               data-bs-toggle="tooltip"
@@ -36,7 +36,7 @@ const Card = ({ product }) => {
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry.
             </p>
-            <p className="price py-1">Rs. {product.price}</p>
+            <p className="price py-1">Rs. {(product.price * 84).toFixed(2)}</p>
             <button
               className="button"
               type="button"
