@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="d-flex justify-content-between align-items-center">
       <div>
         <div>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <span className="logo px-3 py-2">
               <span className="logo-text m-0 p-0">Logo</span>
             </span>
@@ -18,7 +18,7 @@ const Navbar = () => {
       </div>
       <div>
         <div className="d-flex align-items-center">
-          <Link to="/cart">
+          <Link to="/cart" style={{ textDecoration: "none" }}>
             <span>
               <span className="cart-count">{cartItems.length}</span>
               <span className="material-symbols-outlined p-2 cart-icon">

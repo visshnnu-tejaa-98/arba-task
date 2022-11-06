@@ -33,3 +33,19 @@
     transform: rotate(360deg);
   }
 }
+
+.model-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.model-button {
+  width: 45%;
+  background-color: rgb(0, 202, 202);
+  color: #fff;
+  font-weight: 500;
+  border: none;
+}
+
+.model-button:hover {
+  background-color: rgb(1, 149, 149);
+}
